@@ -1,7 +1,6 @@
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
-import Card from "./components/Card/Card";
 import CardSection from "./components/CardSection/CardSection";
 import { useEffect, useState } from "react";
 import axios from "axios";
