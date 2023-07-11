@@ -3,10 +3,10 @@ import CardBody from "../Cardbody/CardBody";
 import CardFooter from "../CardFooter/CardFooter";
 import style from "./Card.module.css";
 
-const Card = () => {
+const Card = ({ image, follows }) => {
   return (
     <div className={style.card}>
-      <CardBody />
+      <CardBody image={image} follows={follows} />
       <CardFooter />
     </div>
   );

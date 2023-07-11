@@ -1,13 +1,11 @@
 import React from "react";
 import style from "./CardBody.module.css";
 import CardImage from "../CardImage/CardImage";
-const CardBody = () => {
+const CardBody = ({ image, follows }) => {
   return (
     <div className={style.cardBody}>
-      <CardImage />
-      <div className={style.cardft}>
-        <button>100 Follows</button>
-      </div>
+      <CardImage image={image} />
+      <button>{follows} Follows</button>
     </div>
   );
 };
