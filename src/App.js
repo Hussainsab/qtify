@@ -3,14 +3,17 @@ import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
 import { useEffect, useState } from "react";
 import Section from "./components/Section/Section";
-import { fetchTopAlbums } from "./api/api";
+import { fetchNewAlbums, fetchTopAlbums } from "./api/api";
 function App() {
   const [topAlbums, setTopAlbums] = useState([]);
+  const [newAlbums, setNewAlbums] = useState([]);
 
   async function getAlbum() {
     try {
-      let response = await fetchTopAlbums();
-      setTopAlbums(response);
+      let responseTopALbums = await fetchTopAlbums();
+      let responseNewAlbums = await fetchNewAlbums();
+      setTopAlbums(responseTopALbums);
+      setNewAlbums(responseNewAlbums);
     } catch (error) {
       throw new Error("fetch faild");
     }
@@ -25,6 +28,7 @@ function App() {
       <Hero />
       <div className={style.sectionWrapper}>
         <Section title={"Top Albums"} data={topAlbums} type={"album"} />
+        <Section title={"New Albums"} data={newAlbums} type={"album"} />
       </div>
     </div>
   );

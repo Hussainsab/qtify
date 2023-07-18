@@ -8,7 +8,7 @@ const Card = ({ data, type }) => {
       const { id, image, title, follows, slug, songs } = data;
 
       return (
-        <Tooltip title={songs.length + "Songs"} placement="top" arrow key={id}>
+        <Tooltip title={songs.length + " Songs"} placement="top" arrow key={id}>
           <div className={style.wrapper}>
             <div className={style.card}>
               <img src={image} alt={type}></img>
@@ -30,7 +30,9 @@ const Card = ({ data, type }) => {
 
     case "songs": {
       const { id, image, title, likes } = data;
-      return <Tooltip title={likes}></Tooltip>;
+      return <Tooltip title={likes}>
+        
+      </Tooltip>;
     }
 
     default:
