@@ -15,7 +15,6 @@ const Controls = ({ data }) => {
 };
 
 const Carousel = ({ data, component }) => {
-  console.log(data);
   return (
     <div className={style.wrapper}>
       <Swiper
