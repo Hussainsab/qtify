@@ -1,18 +1,16 @@
-import "./App.css";
+import style from "./App.module.css";
 import Navbar from "./components/Navbar/Navbar";
 import Hero from "./components/Hero/Hero";
-import CardSection from "./components/CardSection/CardSection";
 import { useEffect, useState } from "react";
-import axios from "axios";
+import Section from "./components/Section/Section";
+import { fetchTopAlbums } from "./api/api";
 function App() {
   const [topAlbums, setTopAlbums] = useState([]);
 
   async function getAlbum() {
     try {
-      let response = await axios.get(
-        "https://qtify-backend-labs.crio.do/albums/top"
-      );
-      setTopAlbums(response.data);
+      let response = await fetchTopAlbums();
+      setTopAlbums(response);
     } catch (error) {
       throw new Error("fetch faild");
     }
@@ -25,7 +23,9 @@ function App() {
     <div className="App">
       <Navbar />
       <Hero />
-      <CardSection albums={topAlbums} />
+      <div className={style.sectionWrapper}>
+        <Section title={"Top Albums"} data={topAlbums} type={"album"} />
+      </div>
     </div>
   );
 }
