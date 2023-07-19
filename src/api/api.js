@@ -28,3 +28,12 @@ export const fetchSongs = async () => {
     console.log(error);
   }
 };
+
+export const fetchGeners = async () => {
+  try {
+    let res = await axios.get(`${BACKEND_ENDPOINT}/genres`);
+    return res.data;
+  } catch (error) {
+    console.log(error);
+  }
+};

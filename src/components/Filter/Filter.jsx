@@ -1,9 +1,22 @@
 import { Box, Tab, Tabs } from "@mui/material";
 import React from "react";
+import { useEffect } from "react";
 import { useState } from "react";
+import axios from "axios";
+import { fetchGeners } from "../../api/api";
 
 const Filter = ({ filterSong }) => {
   const [value, setValue] = useState(0);
+  const [geners, setGeners] = useState(["all"]);
+
+  const getGeners = async () => {
+    let categories = await fetchGeners();
+    setGeners([...geners, ...categories.data.map((item) => item.key)]);
+  };
+
+  useEffect(() => {
+    getGeners();
+  }, []);
 
   const handleChange = (event, newValue) => {
     let songKey = event.target.innerText;
@@ -21,11 +34,9 @@ const Filter = ({ filterSong }) => {
         onChange={handleChange}
         aria-label="basic tabs example"
       >
-        <Tab label="All" />
-        <Tab label="Rock" />
-        <Tab label="Pop" />
-        <Tab label="Jazz" />
-        <Tab label="Blues" />
+        {geners.map((item) => (
+          <Tab label={item} key={item} />
+        ))}
       </Tabs>
     </Box>
   );
