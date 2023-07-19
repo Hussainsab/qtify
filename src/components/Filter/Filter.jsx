@@ -9,14 +9,15 @@ const Filter = ({ filterSong }) => {
   const [value, setValue] = useState(0);
   const [geners, setGeners] = useState(["all"]);
 
-  const getGeners = async () => {
-    let categories = await fetchGeners();
-    setGeners([...geners, ...categories.data.map((item) => item.key)]);
-  };
-
   useEffect(() => {
-    getGeners();
-  });
+    const getGeners = async () => {
+      let categories = await fetchGeners();
+      setGeners([...geners, ...categories.data.map((item) => item.key)]);
+    };
+    if (geners.length < 2) {
+      getGeners();
+    }
+  }, [geners]);
 
   const handleChange = (event, newValue) => {
     let songKey = event.target.innerText;
