@@ -4,6 +4,7 @@ import Hero from "./components/Hero/Hero";
 import { useEffect, useState } from "react";
 import Section from "./components/Section/Section";
 import { fetchNewAlbums, fetchSongs, fetchTopAlbums } from "./api/api";
+import AccordionSection from "./components/Accordion/AccordionSection";
 function App() {
   const [topAlbums, setTopAlbums] = useState([]);
   const [newAlbums, setNewAlbums] = useState([]);
@@ -53,6 +54,7 @@ function App() {
           }}
         />
       </div>
+      <AccordionSection />
     </div>
   );
 }
