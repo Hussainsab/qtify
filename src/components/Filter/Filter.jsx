@@ -2,7 +2,7 @@ import { Box, Tab, Tabs } from "@mui/material";
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
-import axios from "axios";
+
 import { fetchGeners } from "../../api/api";
 
 const Filter = ({ filterSong }) => {

@@ -11,7 +11,7 @@ const Controls = ({ data }) => {
 
   useEffect(() => {
     swiper.slideTo(0, 0, true);
-  }, [data]);
+  }, []);
 };
 
 const Carousel = ({ data, component }) => {
