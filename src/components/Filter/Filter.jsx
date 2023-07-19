@@ -16,7 +16,7 @@ const Filter = ({ filterSong }) => {
 
   useEffect(() => {
     getGeners();
-  }, []);
+  });
 
   const handleChange = (event, newValue) => {
     let songKey = event.target.innerText;
